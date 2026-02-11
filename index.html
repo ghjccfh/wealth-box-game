@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的HTML页面示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin: 25px 0 15px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e1e5eb;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: linear-gradient(to right, #2980b9, #1a252f);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        .interactive-area {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .color-box {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background-color: #3498db;
+            border-radius: 10px;
+            transition: all 0.5s;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>简单的HTML页面示例</h1>
+        <p>展示HTML、CSS和JavaScript的基本用法</p>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>HTML简介</h2>
+            <p>HTML（超文本标记语言）是用于创建网页的标准标记语言。它描述了网页的结构。</p>
+            <p>HTML元素由标签表示，如：</p>
+            <ul>
+                <li><strong>&lt;h1&gt; - &lt;h6&gt;</strong>: 标题标签</li>
+                <li><strong>&lt;p&gt;</strong>: 段落标签</li>
+                <li><strong>&lt;a&gt;</strong>: 链接标签</li>
+                <li><strong>&lt;img&gt;</strong>: 图像标签</li>
+                <li><strong>&lt;div&gt;</strong>: 分区标签</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>HTML列表示例</h2>
+            <p><strong>无序列表：</strong></p>
+            <ul>
+                <li>HTML定义内容结构</li>
+                <li>CSS控制样式和布局</li>
+                <li>JavaScript添加交互功能</li>
+            </ul>
+            
+            <p><strong>有序列表：</strong></p>
+            <ol>
+                <li>学习HTML基础知识</li>
+                <li>掌握CSS样式设计</li>
+                <li>添加JavaScript交互</li>
+                <li>创建完整的网页项目</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h2>常用HTML标签</h2>
+            <p>以下是一些最常用的HTML标签及其用途：</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>标签</th>
+                        <th>描述</th>
+                        <th>示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt;p&gt;</td>
+                        <td>定义段落</td>
+                        <td>&lt;p&gt;这是一个段落&lt;/p&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;a&gt;</td>
+                        <td>定义超链接</td>
+                        <td>&lt;a href="#"&gt;链接&lt;/a&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;img&gt;</td>
+                        <td>定义图像</td>
+                        <td>&lt;img src="image.jpg"&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;ul&gt;和&lt;li&gt;</td>
+                        <td>定义无序列表</td>
+                        <td>&lt;ul&gt;&lt;li&gt;项目&lt;/li&gt;&lt;/ul&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;table&gt;</td>
+                        <td>定义表格</td>
+                        <td>&lt;table&gt;&lt;tr&gt;&lt;td&gt;数据&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <h2>HTML表单示例</h2>
+        <p>表单用于收集用户输入，是网页交互的重要组成部分。</p>
+        
+        <form id="sampleForm">
+            <div class="form-group">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">邮箱：</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="country">国家/地区：</label>
+                <select id="country" name="country">
+                    <option value="">请选择</option>
+                    <option value="cn">中国</option>
+                    <option value="us">美国</option>
+                    <option value="uk">英国</option>
+                    <option value="jp">日本</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">留言：</label>
+                <textarea id="message" name="message" rows="4" placeholder="请输入您的留言..."></textarea>
+            </div>
+            
+            <button type="submit">提交表单</button>
+        </form>
+    </div>
+    
+    <div class="interactive-area">
+        <h2>JavaScript交互示例</h2>
+        <p>点击下面的按钮与页面进行交互：</p>
+        
+        <div class="color-box" id="colorBox"></div>
+        
+        <div class="btn-group">
+            <button id="colorBtn">改变颜色</button>
+            <button id="counterBtn">点击计数: <span id="count">0</span></button>
+            <button id="resetBtn">重置计数器</button>
+        </div>
+        
+        <div class="counter" id="counterDisplay">0</div>
+        
+        <p id="messageDisplay">尝试点击上面的按钮查看效果！</p>
+    </div>
+    
+    <footer>
+        <p>这是一个简单的HTML页面示例 &copy; 2023</p>
+        <p>HTML | CSS | JavaScript</p>
+        <p>本页面仅用于学习目的，展示了HTML的基本结构和功能。</p>
+    </footer>
+
+    <script>
+        // 表单提交处理
+        document.getElementById('sampleForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            alert(`表单提交成功！\n姓名：${name}\n邮箱：${email}`);
+            // 在实际应用中，这里可以将数据发送到服务器
+        });
+        
+        // 颜色按钮功能
+        const colorBtn = document.getElementById('colorBtn');
+        const colorBox = document.getElementById('colorBox');
+        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+        let colorIndex = 0;
+        
+        colorBtn.addEventListener('click', function() {
+            colorIndex = (colorIndex + 1) % colors.length;
+            colorBox.style.backgroundColor = colors[colorIndex];
+            colorBox.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                colorBox.style.transform = 'scale(1)';
+            }, 300);
+        });
+        
+        // 计数器功能
+        const counterBtn = document.getElementById('counterBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const countSpan = document.getElementById('count');
+        const counterDisplay = document.getElementById('counterDisplay');
+        const messageDisplay = document.getElementById('messageDisplay');
+        let count = 0;
+        
+        counterBtn.addEventListener('click', function() {
+            count++;
+            countSpan.textContent = count;
+            counterDisplay.textContent = count;
+            
+            // 根据计数显示不同消息
+            if (count === 10) {
+                messageDisplay.textContent = "太棒了！你已经点击了10次！";
+                messageDisplay.style.color = '#2ecc71';
+            } else if (count === 20) {
+                messageDisplay.textContent = "哇！已经20次了！继续点击！";
+                messageDisplay.style.color = '#f39c12';
+            } else if (count === 30) {
+                messageDisplay.textContent = "30次！你真是点击大师！";
+                messageDisplay.style.color = '#e74c3c';
+            } else if (count % 5 === 0) {
+                messageDisplay.textContent = `继续加油！你已经点击了${count}次！`;
+                messageDisplay.style.color = '#3498db';
+            }
+            
+            // 添加动画效果
+            counterDisplay.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                counterDisplay.style.transform = 'scale(1)';
+            }, 200);
+        });
+        
+        resetBtn.addEventListener('click', function() {
+            count = 0;
+            countSpan.textContent = count;
+            counterDisplay.textContent = count;
+            messageDisplay.textContent = "计数器已重置！尝试点击其他按钮看看效果。";
+            messageDisplay.style.color = '#333';
+        });
+        
+        // 初始随机颜色
+        colorIndex = Math.floor(Math.random() * colors.length);
+        colorBox.style.backgroundColor = colors[colorIndex];
+    </script>
+</body>
+</html>
